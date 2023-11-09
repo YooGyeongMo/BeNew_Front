@@ -3,7 +3,7 @@
 
     <color name="mainBlue">#6532E9</color>
     <color name="mainBg">#F4F6FA</color>
-    <color name="testbtn">#E8E8FA</color>
+    <color name="test_btn">#E8E8FA</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

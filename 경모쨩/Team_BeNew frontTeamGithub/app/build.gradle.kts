@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.gmlab.team_benew"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.gmlab.team_benew"
