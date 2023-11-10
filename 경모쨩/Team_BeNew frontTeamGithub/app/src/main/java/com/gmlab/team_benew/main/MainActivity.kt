@@ -1,10 +1,10 @@
-package com.gmlab.team_benew
+package com.gmlab.team_benew.main
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-
-private const val TAG ="MainActivity"
+import androidx.appcompat.app.AppCompatActivity
+import com.gmlab.team_benew.R
 
 class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 이야기
 
@@ -22,26 +22,25 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
 
     override fun onStart(){
         super.onStart()
-        Log.d(TAG,"onStart")
+        Log.d(TAG, "onStart")
     }
     override fun onResume(){
         super.onResume()
-        Log.d(TAG,"onResume")
+        Log.d(TAG, "onResume")
     }
 
     override fun onPause(){
         super.onPause()
-        Log.d(TAG,"onPause")
+        Log.d(TAG, "onPause")
     }
 
     override fun onStop(){
         super.onStop()
-        Log.d(TAG,"onStop")
+        Log.d(TAG, "onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG,"onDestroy")
+        Log.d(TAG, "onDestroy")
     }
 }
-
