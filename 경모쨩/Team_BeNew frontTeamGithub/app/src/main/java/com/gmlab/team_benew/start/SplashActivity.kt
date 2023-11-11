@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.gmlab.team_benew.R
+import com.gmlab.team_benew.databinding.ActivitySplashBinding
 
 class SplashActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        val binding = ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         var handler = Handler()

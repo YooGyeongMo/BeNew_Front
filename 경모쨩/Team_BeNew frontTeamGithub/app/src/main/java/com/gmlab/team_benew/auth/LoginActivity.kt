@@ -8,36 +8,41 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.gmlab.team_benew.main.MainActivity
 import com.gmlab.team_benew.R
+import com.gmlab.team_benew.databinding.ActivityLoginBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 
 class LoginActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         textWatcher()
         loginLogic()
     }
+
     private fun textWatcher() {
-        val login_id = findViewById<TextInputEditText>(R.id.tet_login_id)
-        val tiLogin_id =findViewById<TextInputLayout>(R.id.ti_login_id)
+        val loginId = binding.tetLoginId
+        val tiLoginId = binding.tiLoginId
 
-        val passwordEditText = findViewById<TextInputEditText>(R.id.tet_login_pw)
-        val passwordTextInputLayout = findViewById<TextInputLayout>(R.id.ti_login_pw)
+        val passwordEditText = binding.tetLoginPw
+        val passwordTextInputLayout = binding.tiLoginPw
 
-        login_id.addTextChangedListener(object : TextWatcher{
+        loginId.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (login_id.text!!.isEmpty()){
-                    tiLogin_id.error="아이디를 입력해주세요"
+                if (loginId.text!!.isEmpty()) {
+                    tiLoginId.error = "아이디를 입력해주세요"
                 } else {
-                    tiLogin_id.error=null
+                    tiLoginId.error = null
                 }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
         })
 
         passwordEditText.addTextChangedListener(object : TextWatcher {
@@ -54,14 +59,13 @@ class LoginActivity : AppCompatActivity(){
         })
     }
 
-    private fun loginLogic(){
-        val loginBtn = findViewById<Button>(R.id.btn_login_login)
+    private fun loginLogic() {
+        val loginBtn = binding.btnLoginLogin
 
-        loginBtn.setOnClickListener{
+        loginBtn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-//            finish()
+            // finish()
         }
-
     }
 }
