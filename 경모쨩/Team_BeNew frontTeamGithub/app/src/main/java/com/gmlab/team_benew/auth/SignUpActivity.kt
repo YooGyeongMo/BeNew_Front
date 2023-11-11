@@ -7,20 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gmlab.team_benew.R
 import com.gmlab.team_benew.databinding.ActivitySignupBinding
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
-class SignUpActivity: AppCompatActivity() {
+class SignUpActivity: AppCompatActivity(), SignUpView {
     private lateinit var binding: ActivitySignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+
 
         binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.btnRegisterRegister.setOnClickListener{
             signUp()
-            finish()
         }
      }
 
@@ -41,6 +45,19 @@ class SignUpActivity: AppCompatActivity() {
             return
         }
 
+
+        val authService = AuthService()
+        authService.setSignUpView(this)
+
+        authService.signUp(getUser())
+    }
+
+    override fun onSignUpSuccess() {
+       finish()
+    }
+
+    override fun onSignUpFailure() {
+        Log.d("SIGNUP/FAILURE","회원가입오류")
     }
 
 
