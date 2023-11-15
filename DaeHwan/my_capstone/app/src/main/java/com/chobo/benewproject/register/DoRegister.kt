@@ -1,4 +1,4 @@
-package com.chobo.benewproject
+package com.chobo.benewproject.register
 
 import retrofit2.Call
 import retrofit2.http.Body

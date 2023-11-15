@@ -1,7 +1,6 @@
-package com.chobo.benewproject
+package com.chobo.benewproject.register
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.LayoutInflater
@@ -12,6 +11,8 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import com.chobo.benewproject.Login.LoginFragment
+import com.chobo.benewproject.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +30,7 @@ class RegisterInfoFragment : Fragment() {
     private lateinit var btn_birthdate : Button
     private lateinit var spn_gender : Spinner
     private lateinit var spn_major : Spinner
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,15 +57,14 @@ class RegisterInfoFragment : Fragment() {
         }
 
         btn_join.setOnClickListener {
-
             var name = et_name.text.toString()
             var gender = spn_gender.selectedItem.toString()
-            var birthdate = btn_birthdate.text.toString()
+            var birthday = btn_birthdate.text.toString()
             var email = et_email.text.toString()
             var major = spn_major.selectedItem.toString()
             var phoneNumber = et_phone.text.toString()
 
-            if(name.isNotEmpty() && birthdate.isNotEmpty() && email.isNotEmpty() && phoneNumber.length == 14){
+            if(name.isNotEmpty() && birthday.isNotEmpty() && email.isNotEmpty() && phoneNumber.length == 13){
 
                 val retrofit = Retrofit.Builder()
                     .baseUrl("http://ec2-3-39-251-72.ap-northeast-2.compute.amazonaws.com/")
@@ -73,7 +74,7 @@ class RegisterInfoFragment : Fragment() {
 
                 val apiService = retrofit.create(DoRegister::class.java)
 
-                val request = RegisterData(account, password, name, gender, birthdate, email, major, phoneNumber)
+                val request = RegisterData(account, password, name, gender, birthday, email, major, phoneNumber)
 
                 val call = apiService.signup(request)
 
@@ -81,10 +82,10 @@ class RegisterInfoFragment : Fragment() {
                     override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                         if (response.isSuccessful) {
                             val fragmentTransaction = childFragmentManager.beginTransaction()
-                            fragmentTransaction.replace(R.id.flay_register_next, LoginFragment())
+                            fragmentTransaction.replace(R.id.flay_registerInfo_gologin, LoginFragment())
                             fragmentTransaction.commit()
                         } else{
-                            
+
                         }
                     }
 
@@ -98,6 +99,7 @@ class RegisterInfoFragment : Fragment() {
         }
         return view
     }
+
     private fun showDatePickerDialog(){
         val calendar = Calendar.getInstance()
 
@@ -110,7 +112,7 @@ class RegisterInfoFragment : Fragment() {
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             { view: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDayOfMonth: Int ->
-                val selectedDate = "$selectedYear/${selectedMonth + 1}/$selectedDayOfMonth"
+                val selectedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDayOfMonth)
                 btn_birthdate.text = selectedDate
             },
             year, month, dayOfMonth

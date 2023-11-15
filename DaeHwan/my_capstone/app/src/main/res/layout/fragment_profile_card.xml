@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ProfileCardFragment">
+    tools:context=".profilecard.ProfileCardFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tlb_toolbar2"
@@ -122,7 +122,7 @@
 
                     <ImageButton
                         android:id="@+id/imgb_profileCard_picture"
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"

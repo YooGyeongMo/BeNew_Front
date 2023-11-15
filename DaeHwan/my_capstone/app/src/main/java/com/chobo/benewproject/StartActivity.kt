@@ -1,10 +1,9 @@
 package com.chobo.benewproject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import java.util.Locale
+import com.chobo.benewproject.register.RegisterFragment
 
 class StartActivity : AppCompatActivity() {
 

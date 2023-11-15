@@ -1,7 +1,6 @@
-package com.chobo.benewproject
+package com.chobo.benewproject.register
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.chobo.benewproject.Login.LoginFragment
+import com.chobo.benewproject.R
 
 class RegisterFragment : Fragment() {
 
@@ -33,22 +34,7 @@ class RegisterFragment : Fragment() {
         btn_goLogin = view.findViewById(R.id.btn_register_goLogin)
 
         btn_next.setOnClickListener {
-            if (et_password.text.toString() == et_passwordCheck.text.toString() &&
-                et_id.text.isNotEmpty() && et_password.text.isNotEmpty()) {
-
-                val bundle = Bundle()
-                bundle.putString("account", et_id.text.toString())
-                bundle.putString("password", et_password.text.toString())
-
-                val registerInfoFragment = RegisterInfoFragment()
-                registerInfoFragment.arguments = bundle
-
-                val fragmentTransaction = childFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.flay_register_next, registerInfoFragment)
-                fragmentTransaction.commit()
-            } else {
-                // 비밀번호 재확인 요청
-            }
+            nextClickEvent()
         }
 
         btn_goLogin.setOnClickListener {
@@ -58,5 +44,26 @@ class RegisterFragment : Fragment() {
         }
 
         return view
+    }
+
+
+
+    private fun nextClickEvent(){
+        if (et_password.text.toString() == et_passwordCheck.text.toString() &&
+            et_id.text.isNotEmpty() && et_password.text.isNotEmpty()) {
+
+            val bundle = Bundle()
+            bundle.putString("account", et_id.text.toString())
+            bundle.putString("password", et_password.text.toString())
+
+            val registerInfoFragment = RegisterInfoFragment()
+            registerInfoFragment.arguments = bundle
+
+            val fragmentTransaction = childFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.flay_register_next, registerInfoFragment)
+            fragmentTransaction.commit()
+        } else {
+            // 비밀번호 재확인 요청
+        }
     }
 }

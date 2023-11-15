@@ -1,11 +1,10 @@
 package com.chobo.benewproject
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.FrameLayout
+import com.chobo.benewproject.profilecard.ProfileCardFragment
 
 class TestmainActivity : AppCompatActivity() {
 
@@ -14,6 +13,8 @@ class TestmainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_testmain)
+
+        val token = intent.getStringExtra("token")
 
         btn_goProfile = findViewById(R.id.btn_goProfile)
 

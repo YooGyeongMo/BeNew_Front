@@ -1,6 +1,8 @@
-package com.chobo.benewproject
+package com.chobo.benewproject.profilecard
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import com.chobo.benewproject.R
 
 class ProfileCardFragment : Fragment() {
 
@@ -38,12 +41,7 @@ class ProfileCardFragment : Fragment() {
 
         imgb_picture.clipToOutline = true
 
-        imgb_picture.isEnabled = false
-        et_name.isEnabled = false
-        et_email.isEnabled = false
-        et_introduce.isEnabled = false
-        spn_age.isEnabled = false
-        spn_gender.isEnabled = false
+        disableInputFields()
 
         imgb_picture.setOnClickListener {
             val intent = Intent()
@@ -54,26 +52,42 @@ class ProfileCardFragment : Fragment() {
 
         btn_modify.setOnClickListener {
             if (btn_modify.text.toString() == "수정") {
-                imgb_picture.isEnabled = true
-                et_name.isEnabled = true
-                et_email.isEnabled = true
-                et_introduce.isEnabled = true
-                spn_age.isEnabled = true
-                spn_gender.isEnabled = true
+                enableInputFields()
 
                 btn_modify.text = "저장"
             } else {
-                imgb_picture.isEnabled = false
-                et_name.isEnabled = false
-                et_email.isEnabled = false
-                et_introduce.isEnabled = false
-                spn_age.isEnabled = false
-                spn_gender.isEnabled = false
+                disableInputFields()
 
                 btn_modify.text = "수정"
             }
         }
 
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null){
+            val selectedImage : Uri? = data.data
+            imgb_picture.setImageURI(selectedImage)
+        }
+    }
+
+    private fun disableInputFields() {
+        imgb_picture.isEnabled = false
+        et_name.isEnabled = false
+        et_email.isEnabled = false
+        et_introduce.isEnabled = false
+        spn_age.isEnabled = false
+        spn_gender.isEnabled = false
+    }
+
+    private fun enableInputFields() {
+        imgb_picture.isEnabled = true
+        et_name.isEnabled = true
+        et_email.isEnabled = true
+        et_introduce.isEnabled = true
+        spn_age.isEnabled = true
+        spn_gender.isEnabled = true
     }
 }

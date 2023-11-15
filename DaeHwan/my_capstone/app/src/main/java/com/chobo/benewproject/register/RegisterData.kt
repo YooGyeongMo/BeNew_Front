@@ -1,4 +1,4 @@
-package com.chobo.benewproject
+package com.chobo.benewproject.register
 
 import com.google.gson.annotations.SerializedName
 
@@ -15,8 +15,8 @@ data class RegisterData (
     @SerializedName("gender")
     private var gender: String,
 
-    @SerializedName("birthdate")
-    private var birthdate: String,
+    @SerializedName("birthday")
+    private var birthday: String,
 
     @SerializedName("email")
     private var email: String,
@@ -28,7 +28,7 @@ data class RegisterData (
     private var phoneNumber: String
 ){
     override fun toString() : String{
-        return "account=$account, password=$password, name=$name, gender=$gender," +
-                "birthdate=$birthdate, email=$email, major=$major, phoneNumber=$phoneNumber"
+        return "account=$account, password=$password, name=$name, gender=$gender, " +
+                "birthday=$birthday, email=$email, major=$major, phoneNumber=$phoneNumber"
     }
 }
