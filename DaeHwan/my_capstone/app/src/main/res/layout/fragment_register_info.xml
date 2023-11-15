@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterInfoActivity"
+    android:background="#FFFFFF">
+
+    <android.widget.Button
+        android:id="@+id/btn_registerInfo_join"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:background="@drawable/draw_main"
+        android:text="가입"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <EditText
+        android:id="@+id/et_registerInfo_name"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:ems="10"
+        android:hint="이름"
+        android:inputType="text"
+        android:textColorHint="#AAAAAA"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <EditText
+        android:id="@+id/et_registerInfo_phone"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:ems="10"
+        android:hint="전화번호"
+        android:inputType="phone"
+        android:maxLength="13"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spn_registerInfo_major"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spn_registerInfo_major"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <EditText
+        android:id="@+id/et_registerInfo_nickname"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:gravity="center_vertical"
+        android:hint="닉네임"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_registerInfo_name"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_registerInfo_name"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <EditText
+        android:id="@+id/et_registerInfo_email"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:ems="10"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_registerInfo_nickname"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_registerInfo_nickname"
+        app:layout_constraintVertical_bias="0.050000012"
+        android:autofillHints="" />
+
+    <android.widget.Button
+        android:id="@+id/btn_registerInfo_birthdate"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:gravity="center_vertical"
+        android:hint="날짜"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_registerInfo_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_registerInfo_email"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <Spinner
+        android:id="@+id/spn_registerInfo_gender"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:entries="@array/gender"
+        app:layout_constraintEnd_toEndOf="@+id/et_registerInfo_email"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_registerInfo_birthdate" />
+
+    <Spinner
+        android:id="@+id/spn_registerInfo_major"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/draw_textbox"
+        android:entries="@array/major"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spn_registerInfo_gender"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registerInfo_birthdate"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <FrameLayout
+        android:id="@+id/flay_registerInfo_gologin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
