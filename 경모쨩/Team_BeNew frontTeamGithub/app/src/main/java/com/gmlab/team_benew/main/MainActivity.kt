@@ -13,7 +13,17 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //사용자에게 보여줄 레이아웃 선정 파일 ID인수로
         Log.d(TAG, "onCreate")
+
+
+        Log.d("MAIN/TOKEN_TOSERVER", getToken().toString())
     }
+
+    private fun getToken(): String? {
+        val spf = this.getSharedPreferences("auth2", MODE_PRIVATE)
+
+        return spf!!.getString("Token","")
+    }
+
 
     override fun onRestart() {
         super.onRestart()

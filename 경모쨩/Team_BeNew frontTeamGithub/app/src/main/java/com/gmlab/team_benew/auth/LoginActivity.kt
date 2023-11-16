@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gmlab.team_benew.main.MainActivity
 import com.gmlab.team_benew.R
@@ -22,7 +24,17 @@ class LoginActivity : AppCompatActivity(){
         setContentView(binding.root)
 
         textWatcher()
-        loginLogic()
+
+        binding.btnLoginLogin.setOnClickListener{
+            startMainActivity()
+        }
+
+
+    }
+
+    private fun startMainActivity(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun textWatcher() {
@@ -56,16 +68,12 @@ class LoginActivity : AppCompatActivity(){
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+
         })
     }
 
-    private fun loginLogic() {
-        val loginBtn = binding.btnLoginLogin
 
-        loginBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            // finish()
-        }
-    }
+
+
 }

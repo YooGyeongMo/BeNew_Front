@@ -10,6 +10,7 @@ import kotlin.math.sign
 
 class AuthService {
     private lateinit var signUpView: SignUpView
+    private lateinit var loginView: LoginView
 
     fun setSignUpView(signUpView: SignUpView){
         this.signUpView = signUpView
@@ -28,11 +29,10 @@ class AuthService {
 
                 }
 
-
             }
             //실패 했을때
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.d("SIGNUP/FAILED",t.message.toString()) // 비동기 작업
+                Log.d("SIGNUP/FAILURE",t.message.toString()) // 비동기 작업
             }
 
 
@@ -40,4 +40,5 @@ class AuthService {
 
         Log.d("SIGNUP","비동기 함수 작동완료 ~!")
     }
+
 }

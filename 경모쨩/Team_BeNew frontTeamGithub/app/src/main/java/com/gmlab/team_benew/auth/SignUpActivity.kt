@@ -25,6 +25,7 @@ class SignUpActivity: AppCompatActivity(), SignUpView {
 
         binding.btnRegisterRegister.setOnClickListener{
             signUp()
+            onSignUpSuccess()
         }
      }
 
