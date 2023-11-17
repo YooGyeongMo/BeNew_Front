@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.chobo.benewproject.R
-import com.chobo.benewproject.TestmainActivity
+import com.chobo.benewproject.testmain.TestmainActivity
 import com.chobo.benewproject.register.RegisterFragment
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,9 +67,11 @@ class LoginFragment : Fragment() {
                         if(jwtResponse != null && jwtResponse.token.isNotEmpty())
                         {
                             val token = jwtResponse.token
+                            val id = jwtResponse.id
 
                             val intent = Intent(requireContext(), TestmainActivity::class.java)
                             intent.putExtra("token", token)
+                            intent.putExtra("id", id)
                             startActivity(intent)
                             requireActivity().finish()
                         }

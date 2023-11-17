@@ -16,5 +16,8 @@ data class LoginData(
 
 data class JwtResponse(
     @SerializedName("token")
-    val token: String
+    val token: String,
+
+    @SerializedName("id")
+    val id: String
 )
