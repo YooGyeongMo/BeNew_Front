@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
+
 class SignUpActivity: AppCompatActivity(), SignUpView {
     private lateinit var binding: ActivitySignupBinding
 

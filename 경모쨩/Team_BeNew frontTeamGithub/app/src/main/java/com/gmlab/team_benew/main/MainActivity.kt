@@ -15,13 +15,7 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
         Log.d(TAG, "onCreate")
 
 
-        Log.d("MAIN/TOKEN_TOSERVER", getToken().toString())
-    }
 
-    private fun getToken(): String? {
-        val spf = this.getSharedPreferences("auth2", MODE_PRIVATE)
-
-        return spf!!.getString("Token","")
     }
 
 
