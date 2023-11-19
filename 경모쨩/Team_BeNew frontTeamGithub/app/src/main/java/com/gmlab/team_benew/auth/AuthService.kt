@@ -27,7 +27,7 @@ class AuthService {
         authService.signUp(user).enqueue(object : Callback<ResponseBody> {
             //응답이 왔을때
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                Log.d("SIGNUP/SUCCESS", response.toString())
+                Log.d("NETWORK_SIGNUP/SUCCESS", response.toString())
                 when (response.code()) {
                     200 -> signUpView.onSignUpSuccess()
                     else -> signUpView.onSignUpFailure()
@@ -38,7 +38,7 @@ class AuthService {
 
             //실패 했을때
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.d("SIGNUP/FAILURE", t.message.toString()) // 비동기 작업
+                Log.d("SIGNUP_NETWORK/FAILURE", t.message.toString()) // 비동기 작업
             }
 
 
@@ -53,7 +53,7 @@ class AuthService {
         authService.login(user).enqueue(object : Callback<LoginResult> {
             //응답이 왔을때
             override fun onResponse(call: Call<LoginResult>, response: Response<LoginResult>) {
-                Log.d("LOGIN/SUCCESS", response.toString())
+                Log.d("NETWORK_LOGIN/SUCCESS", response.toString())
                 when (response.code()) {
                     200 -> {
                         //응답 바디가 널이 아닐때 let블록실행
@@ -65,13 +65,16 @@ class AuthService {
 //                        GlobalData.UserAccount = response.body()?.result?.account
 //                        GlobalData.GlobalToken = response.body()?.result?.token
                     }
+                    401 -> {
+
+                    }
                     else ->
                         loginView.onLoginFailure()
                 }
             }
 
             override fun onFailure(call: Call<LoginResult>, t: Throwable) {
-                Log.d("LOGIN/FAILURE", t.message.toString()) // 비동기 작업
+                Log.d("LOGIN_NETWORK/FAILURE", t.message.toString()) // 비동기 작업
             }
 
         })

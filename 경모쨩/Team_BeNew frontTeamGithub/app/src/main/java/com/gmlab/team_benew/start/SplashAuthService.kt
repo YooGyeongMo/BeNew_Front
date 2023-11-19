@@ -28,6 +28,7 @@ class SplashAuthService {
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
         authService.adminGet(token).enqueue(object : Callback<TokenGet> {
             override fun onResponse(call: Call<TokenGet>, response: Response<TokenGet>) {
+                Log.d("NETWORK_VERIFY_USER/SUCCESS","USER_TOKEN_VAILD")
                 when (response.code()) {
                     200 -> // 토큰이 유효한 경우, Success
                         splashView.onTokenCheckSuccess()
@@ -43,7 +44,7 @@ class SplashAuthService {
             }
 
             override fun onFailure(call: Call<TokenGet>, t: Throwable) {
-                Log.d("Splash/NETWORKERROR" , "스플래쉬 네트워크 오류 에러")
+                Log.d("NETWORK_VERIFY_USER/FAILURE" , "스플래쉬 네트워크 오류 에러")
             }
         })
     }

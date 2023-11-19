@@ -106,6 +106,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun onLoginSuccess() {
+        Log.d("LOGIN/SUCCESS","로그인 성공")
         finish()
         startMainActivity()
     }

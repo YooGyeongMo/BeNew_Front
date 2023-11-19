@@ -55,6 +55,8 @@ class SignUpActivity: AppCompatActivity(), SignUpView {
     }
 
     override fun onSignUpSuccess() {
+
+        Log.d("SIGNUP/SUCCESS","회원가입오류")
        finish()
     }
 
