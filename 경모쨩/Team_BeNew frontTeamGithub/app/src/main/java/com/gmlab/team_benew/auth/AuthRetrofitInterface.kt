@@ -11,8 +11,7 @@ interface AuthRetrofitInterface {
     @POST("/register")
     fun signUp(@Body user: User) : Call<ResponseBody>
 
-    @POST("/login")
-    fun loginCheck(@Body user: User) : Call<AuthResponse>
+
     @POST("/login")
     fun login(@Body user: User) : Call<LoginResult>
 

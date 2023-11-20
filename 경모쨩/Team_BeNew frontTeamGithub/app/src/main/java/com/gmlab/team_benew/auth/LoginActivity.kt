@@ -18,8 +18,9 @@ import retrofit2.Response
 // 다음 페이지에서 로그인 성공시 User Account 값 공유가능한 글로벌 데이터에 담아서 소통
 // ID 값 응답값에서 담아온거 저장하기
 
-class LoginActivity : AppCompatActivity(), LoginView {
+class LoginActivity : AppCompatActivity(), LoginView, ReLoginView {
     private lateinit var binding: ActivityLoginBinding
+    private val authService = AuthService()
 
 
 
@@ -33,7 +34,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
         //은닉화 및 캡슐화
         binding.btnLoginLogin.setOnClickListener{
 
-            Login()
+//            Login()
+            //임시방편
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            // 필요한 경우 현재 액티비티를 종료
+//            finish()
         }
 
 
@@ -113,6 +120,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun onLoginFailure() {
         Log.d("LOGIN/FAILURE","로그인 오류")
+    }
+
+    override fun onReLoginSuccess() {
+        Log.d("RELOGIN/SUCCESS","로그인 성공")
+        finish()
+        startMainActivity()
+    }
+
+    override fun onReLoginFailure() {
+        Log.d("RELOGIN/FAILURE","로그인 오류")
     }
 
 }
