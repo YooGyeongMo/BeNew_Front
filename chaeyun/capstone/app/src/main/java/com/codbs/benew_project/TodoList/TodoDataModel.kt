@@ -1,4 +1,9 @@
 package com.codbs.benew_project.TodoList
 
-class TodoDataModel {
-}
+data class TodoDataModel (
+    var content:String,
+    var dueDate:String,
+    var status:Int=0
+
+)
+

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "801635649358",
+    "project_id": "myproject-96bd8",
+    "storage_bucket": "myproject-96bd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801635649358:android:bd0866aff51d76b3cdc01f",
+        "android_client_info": {
+          "package_name": "com.codbs.myproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBji2tn2oE-2nA-fC-9i6YXH8dwmWYDInI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801635649358:android:5ebe4bb929b79496cdc01f",
+        "android_client_info": {
+          "package_name": "com.codbs.todo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBji2tn2oE-2nA-fC-9i6YXH8dwmWYDInI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
