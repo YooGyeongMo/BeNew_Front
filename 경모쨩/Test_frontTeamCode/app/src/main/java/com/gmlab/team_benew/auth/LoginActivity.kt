@@ -34,12 +34,12 @@ class LoginActivity : AppCompatActivity(), LoginView, ReLoginView {
         //은닉화 및 캡슐화
         binding.btnLoginLogin.setOnClickListener{
 
-//            Login()
+            Login()
             //임시방편
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
 
-            // 필요한 경우 현재 액티비티를 종료
+//             필요한 경우 현재 액티비티를 종료
 //            finish()
         }
 

@@ -26,7 +26,13 @@
         app:layout_constraintBottom_toTopOf="@id/ti_login_pw"
         app:layout_constraintEnd_toEndOf="@id/iv_login_title"
         app:layout_constraintStart_toStartOf="@id/iv_login_title"
-        app:layout_constraintTop_toBottomOf="@id/iv_login_title">
+        app:layout_constraintTop_toBottomOf="@id/iv_login_title"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/lgYellow"
+        app:boxStrokeColor="@color/gray"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="1dp"
+        app:hintTextColor="@color/gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tet_login_id"
@@ -49,6 +55,12 @@
         app:layout_constraintTop_toBottomOf="@id/ti_login_id"
         app:layout_constraintEnd_toEndOf="@id/ti_login_id"
         app:layout_constraintStart_toStartOf="@id/ti_login_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/lgYellow"
+        app:boxStrokeColor="@color/gray"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="1dp"
+        app:hintTextColor="@color/gray"
 
        >
         <com.google.android.material.textfield.TextInputEditText

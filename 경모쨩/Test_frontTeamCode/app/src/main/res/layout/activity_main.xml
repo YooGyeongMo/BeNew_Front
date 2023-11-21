@@ -30,6 +30,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_main"
         app:navGraph ="@navigation/main_navigation"
         app:defaultNavHost="true"
+        android:background="@color/white"
         />
 
 

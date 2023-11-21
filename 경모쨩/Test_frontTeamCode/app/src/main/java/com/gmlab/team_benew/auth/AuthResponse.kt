@@ -22,7 +22,7 @@ data class LoginResult(
     @SerializedName("roles") var roles: List<Role>,
     @SerializedName("token") var token: String
 )
-
+// 유저정보 또한 들고올 수 있음
 data class TokenGet(
     @SerializedName("account") var account: String,
     @SerializedName("birthday") var birthday: String,

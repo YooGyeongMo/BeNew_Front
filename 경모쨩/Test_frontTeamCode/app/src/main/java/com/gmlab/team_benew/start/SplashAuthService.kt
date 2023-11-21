@@ -15,7 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class SplashAuthService {
+class SplashAuthService(private  val context: Context) {
 
     private lateinit var splashView: SplashView
 
@@ -24,21 +24,27 @@ class SplashAuthService {
     }
 
 
-    fun verifyUserToken(token: String) {
+    fun verifyUserToken(token: String, account: String)
+    {
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
-        authService.adminGet(token).enqueue(object : Callback<TokenGet> {
+        val bearerToken = "Bearer $token"
+        authService.adminGet(bearerToken, account).enqueue(object : Callback<TokenGet> {
             override fun onResponse(call: Call<TokenGet>, response: Response<TokenGet>) {
                 Log.d("NETWORK_VERIFY_USER/SUCCESS","USER_TOKEN_VAILD")
-                when (response.code()) {
-                    200 -> // 토큰이 유효한 경우, Success
-                        splashView.onTokenCheckSuccess()
+                when(response.code()) {
+                    200 -> {
+                        val serverToken = response.body()?.token
+                        val localToken = getTokenFromSharedPreferences(context)
+                        if (serverToken != null && serverToken == localToken) {
+                            splashView.onTokenCheckSuccess()
+                        }
+                    }
 
-                    401 ->
-                        // 토큰이 유효하지 않음 실패
+                    401 -> {
                         splashView.onTokenCheckFailure()
-
+                    }
                     else -> {
-                        Log.d("SplashCheck/Error","체크 오류")
+                        response.code()
                     }
                 }
             }
@@ -48,5 +54,9 @@ class SplashAuthService {
             }
         })
     }
+    private fun getTokenFromSharedPreferences(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        return sharedPref.getString("userToken", null)
 
+    }
 }

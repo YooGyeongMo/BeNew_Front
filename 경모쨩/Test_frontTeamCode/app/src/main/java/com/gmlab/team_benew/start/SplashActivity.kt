@@ -31,21 +31,24 @@ class SplashActivity: AppCompatActivity(),SplashView{
         binding.pgProgressBar.visibility = View.GONE
 
         val token = getTokenFromSharedPreferences(this)
-        if (token != null) {
+        val account = getAccountFromSharedPreferences(this)
+
+        if (token != null && account != null) { // 토큰 유무에 따라 확인해야하기떄문에
 
             binding.pgProgressBar.visibility = View.VISIBLE // 프로그레스 바 보이기
             Handler().postDelayed({
 
-                val splashAuthService = SplashAuthService()
+                val splashAuthService = SplashAuthService(this)
                 splashAuthService.setSplashView(this)
-                splashAuthService.verifyUserToken(token)
+                splashAuthService.verifyUserToken(token, account)
 
 
             }, 2000)
 
 
 
-        } else {
+        }
+        else {
             // token이 null이면 바로 로그인 화면으로 이동
             handler.postDelayed({
                 startActivity(Intent(this, IntroActivity::class.java))
@@ -60,6 +63,11 @@ class SplashActivity: AppCompatActivity(),SplashView{
         val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         return sharedPref.getString("userToken", null)
 
+    }
+
+    private fun getAccountFromSharedPreferences(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        return sharedPref.getString("userAccount", null)
     }
 
     override fun onTokenCheckSuccess() {
