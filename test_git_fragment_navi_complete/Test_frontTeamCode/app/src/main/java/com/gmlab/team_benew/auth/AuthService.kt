@@ -26,10 +26,10 @@ class AuthService {
         this.reloginView =reloginView
     }
 
-    fun signUp(user: User) {
+    fun signUp(registerUser: RegisterUser) {
 
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
-        authService.signUp(user).enqueue(object : Callback<ResponseBody> {
+        authService.signUp(registerUser).enqueue(object : Callback<ResponseBody> {
             //응답이 왔을때
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 Log.d("NETWORK_SIGNUP/SUCCESS", response.toString())
@@ -62,8 +62,11 @@ class AuthService {
                 when (response.code()) {
                     200 -> {
                         //응답 바디가 널이 아닐때 let블록실행
-                        response.body()?.let{
-                            saveLoginInfo(context, it.id, it.account, it.token)
+                        response.body()?.let{ result->
+                            val currentToken = getCurrentToken(context)
+                            if( currentToken != result.token) {
+                            saveLoginInfo(context, result.id, result.account, result.token)
+                        }
                             loginView.onLoginSuccess()
                         }
 //                        GlobalData.loginId = response.body()?.result?.id //null일 경우 저장되어야해서 안전한 연산자 사용
@@ -112,7 +115,8 @@ class AuthService {
 
     // null 이 아닐 때 let 구분이 실행되도록 설정 요청 후 응답받는 값이 null이 아닐때 설정.
     // 최초 로그인시 저장됩니다.
-    private fun saveLoginInfo(context: Context, id: Int?, account: String?, token: String?) {
+    private fun saveLoginInfo(context: Context, id: Int?, account: String?, token: String?)
+    {
         val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             id?.let { putInt("loginId", it) }
@@ -120,6 +124,11 @@ class AuthService {
             token?.let { putString("userToken", it) }
             apply()
         }
+    }
+
+    private fun getCurrentToken(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        return sharedPref.getString("userToken", null)
     }
 
 }

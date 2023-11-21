@@ -23,4 +23,6 @@
     <color name="bg2">#ADEFD1</color>
     <color name="textcor">#00203F</color>
 
+    <color name="gray">#808080</color>
+
 </resources>

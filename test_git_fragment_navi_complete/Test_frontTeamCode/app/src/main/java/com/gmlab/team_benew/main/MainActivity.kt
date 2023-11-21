@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
         }
     }
 
-    private fun showAlertDialog() {
+    private fun showAlertDialog()
+    {
         AlertDialog.Builder(this)
             .setTitle("알림")
             .setMessage("알림창입니다.")
@@ -72,4 +73,7 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
             }
             .show()
     }
+
+
+
 }
