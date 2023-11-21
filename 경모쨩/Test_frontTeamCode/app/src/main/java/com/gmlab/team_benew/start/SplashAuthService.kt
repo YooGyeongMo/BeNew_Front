@@ -37,6 +37,7 @@ class SplashAuthService(private  val context: Context) {
                         val localToken = getTokenFromSharedPreferences(context)
                         if (serverToken != null && serverToken == localToken) {
                             splashView.onTokenCheckSuccess()
+                            //
                         }
                     }
 
