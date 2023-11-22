@@ -15,16 +15,7 @@
         android:theme="@style/Theme.BeNew_Project"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".todolist_firebase.TodolistView"
-            android:exported="false"
-            android:label="@string/title_activity_todolist_view"
-            android:theme="@style/Theme.BeNew_Project" />
-        <activity
-            android:name=".todolist_firebase.AddNewTask"
-            android:exported="false"
-            android:label="@string/title_activity_add_new_task"
-            android:theme="@style/Theme.BeNew_Project" />
+
         <activity
             android:name=".HomeButton"
             android:exported="true">

@@ -6,7 +6,12 @@
       <p k="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/res/layout/fragment_todolist_view.xml" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/java/com/codbs/benew_project/todolist_firebase/AddNewTask.kt" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/build.gradle.kts" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/src/main/res/layout/fragment_todo_list_card.xml" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/src/main/res/drawable/complete_button_custom.xml" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/src/main/res/drawable/edittext_custom.xml" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/res/layout/activity_add_new_task.xml" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/src/main/res/drawable/edittext_background.xml" v="HidePanelGroup" />
     </lastGroup>
   </component>
 </project>

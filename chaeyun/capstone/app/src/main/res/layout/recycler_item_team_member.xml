@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="20dp"
     android:layout_width="145dp"
-    android:layout_height="170dp">
+    android:layout_height="170dp"
+    android:background="#a9cbd7"
+    app:cardBackgroundColor="#a9cbd7">
 
 
     <LinearLayout
@@ -24,4 +26,4 @@
 
 
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

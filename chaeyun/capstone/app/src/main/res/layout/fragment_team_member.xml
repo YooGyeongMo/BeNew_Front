@@ -1,41 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TeamProject.TeamMemberFrag"
+    android:background="@color/white"
     android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="235dp"
+    android:layout_marginTop="100dp">
+
+    <TextView
+        android:layout_marginLeft="6dp"
+        android:text="팀원 목록이에요"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-
-
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_below="@id/my_recycler_view2"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp">
-        <ScrollView
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="프로젝트 정보"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -45,66 +77,75 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:textStyle="bold"
-
+                        android:text="팀 명"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textStyle="bold" />
 
                     <EditText
+                        android:background="@drawable/edittext_custom"
+                        android:hint="팀 명을 입력해주세요"
+                        android:textColorHint="#868e96"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
                     android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
                     android:orientation="vertical"
                     android:weightSum="3"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-
-
+                        android:text="한줄 소개"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textStyle="bold"/>
 
                     <EditText
+                        android:background="@drawable/edittext_custom"
+                        android:hint="한줄소개를 입력해주세요"
+                        android:textColorHint="#868e96"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
                     android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
                     android:orientation="vertical"
                     android:weightSum="3"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-
+                        android:text="프로젝트 설립 일"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1" />
 
-                    <EditText
+                    <TextView
+                        android:textColor="#868e96"
+                        android:drawableRight="@drawable/baseline_calendar_month_24"
+                        android:gravity="center|left"
+                        android:background="@drawable/edittext_custom"
+                        android:text="설립일을 선택해주세요"
+                        android:textSize="19sp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -118,7 +159,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -126,7 +167,7 @@
                         android:layout_weight="2"
                         android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -140,7 +181,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -148,7 +189,7 @@
                         android:layout_weight="2"
                         android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -162,7 +203,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                    android:layout_weight="1" />
+                        android:layout_weight="1" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -170,16 +211,32 @@
                         android:layout_weight="2"
                         android:background="@drawable/edittext_background"
                         tools:layout_editor_absoluteX="14dp"
-                        tools:layout_editor_absoluteY="0dp"/>
+                        tools:layout_editor_absoluteY="0dp" />
                 </LinearLayout>
 
 
             </LinearLayout>
 
 
-        </ScrollView>
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="53dp"
+            android:layout_height="28dp"
+            android:background="@drawable/complete_button_custom"
+            android:text="등록"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

@@ -40,10 +40,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
         android:text="todolist"
-        app:layout_constraintBottom_toBottomOf="@+id/d_day"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/d_day"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/team" />
 
 
