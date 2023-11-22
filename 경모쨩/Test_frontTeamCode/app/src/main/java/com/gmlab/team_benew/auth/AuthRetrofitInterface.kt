@@ -18,6 +18,11 @@ interface AuthRetrofitInterface {
 
 
     // 스플래시에서 토큰 권한정보 확인시
-    @GET("/admin/get")
+    @GET("/user/get")
     fun adminGet(@Header("Authorization") bearerToken: String, @Query("account") account: String): Call<TokenGet>
+
+
+    // 메인 액티비티에 가져오기 값
+    @GET("/user/get")
+    fun userGet(@Header("Authorization") bearerToken: String, @Query("account") account: String): Call<UserGet>
 }

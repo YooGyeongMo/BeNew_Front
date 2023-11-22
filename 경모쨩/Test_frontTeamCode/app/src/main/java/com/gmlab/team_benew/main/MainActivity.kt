@@ -1,10 +1,12 @@
 package com.gmlab.team_benew.main
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
@@ -12,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gmlab.team_benew.R
+import com.gmlab.team_benew.start.SplashAuthService
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 이야기
@@ -23,7 +26,6 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
         setSupportActionBar(findViewById(R.id.toolbar_app_default))
         // 툴바 제목 설정 제거
         supportActionBar?.title = ""
-
 
         Log.d(TAG, "onCreate")
 
@@ -73,7 +75,6 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
             }
             .show()
     }
-
 
 
 }

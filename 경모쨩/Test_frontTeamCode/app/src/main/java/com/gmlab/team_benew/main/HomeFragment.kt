@@ -1,16 +1,18 @@
 package com.gmlab.team_benew.main
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.gmlab.team_benew.R
 
-class HomeFragment: Fragment() {
+class HomeFragment: Fragment(), MainView,UserNameCallback {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,10 +20,15 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 여기서 사용자 정보를 가져옴
+        getUserInfo()
 
         val buttonNavProfile = view.findViewById<CardView>(R.id.cv_user_info_card)
         val buttonNavProject = view.findViewById<CardView>(R.id.cv_project_info_card)
@@ -40,4 +47,40 @@ class HomeFragment: Fragment() {
             R.id.cv_my_team_list -> findNavController().navigate(R.id.action_home_to_teamList) // 팀 리스트로
         }
     }
+    private fun getUserInfo() {
+        val token = getTokenFromSharedPreferences()
+        val account = getAccountFromSharedPreferences()
+        if (token != null && account != null) {
+            val homeService = MainAuthService(this) // HomeService는 네트워크 요청을 처리하는 클래스
+            homeService.setMainView(this)
+            homeService.setUserNameCallback(this)
+            homeService.getUserName(token,account)
+        }
+    }
+
+    override fun onUserNameReceived(userName: String) {
+        val tvUserData = view?.findViewById<TextView>(R.id.tv_username_data)
+        tvUserData?.text = userName
+    }
+
+    private fun getTokenFromSharedPreferences(): String? {
+        val sharedPref = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        return sharedPref?.getString("userToken", null)
+    }
+
+    // SharedPreferences에서 account 가져오는 함수
+    private fun getAccountFromSharedPreferences(): String? {
+        val sharedPref = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        return sharedPref?.getString("userAccount", null)
+    }
+
+    override fun onMainGetSuccess() {
+        Log.d("USER/GET/SUCCESS","유저정보 획득성공 콜백성공")
+    }
+
+    override fun onMainGetFailure() {
+        Log.d("USER/GET/FAILURE","유저정보 획득성공 콜백실패")
+    }
+
+
 }

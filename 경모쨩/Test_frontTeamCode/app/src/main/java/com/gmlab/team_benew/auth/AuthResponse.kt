@@ -37,6 +37,20 @@ data class TokenGet(
     @SerializedName("token") var token: String
 )
 
+data class UserGet(
+    @SerializedName("account") var account: String,
+    @SerializedName("birthday") var birthday: String,
+    @SerializedName("email") var email: String,
+    @SerializedName("gender") var gender: String,
+    @SerializedName("id") var id: Int,
+    @SerializedName("major") var major: String,
+    @SerializedName("name") var name: String,
+    @SerializedName("password") var password: String,
+    @SerializedName("phoneNumber") var phoneNumber: String,
+    @SerializedName("roles") var roles: List<Role>,
+    @SerializedName("token") var token: String
+)
+
 data class Role(
     @SerializedName("name") var name: String
 )
