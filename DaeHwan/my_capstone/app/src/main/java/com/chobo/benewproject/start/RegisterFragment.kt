@@ -1,6 +1,7 @@
-package com.chobo.benewproject.register
+package com.chobo.benewproject.start
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.chobo.benewproject.Login.LoginActivity
 import com.chobo.benewproject.Login.LoginFragment
 import com.chobo.benewproject.R
+import com.chobo.benewproject.register.RegisterInfoFragment
 
 class RegisterFragment : Fragment() {
 
-    private lateinit var et_id: EditText
+    private lateinit var et_account: EditText
     private lateinit var et_password: EditText
     private lateinit var et_passwordCheck: EditText
     private lateinit var btn_next: Button
@@ -27,7 +30,7 @@ class RegisterFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
 
-        et_id = view.findViewById(R.id.et_register_id)
+        et_account = view.findViewById(R.id.et_register_id)
         et_password = view.findViewById(R.id.et_register_password)
         et_passwordCheck = view.findViewById(R.id.et_register_passwordCheck)
         btn_next = view.findViewById(R.id.btn_register_next)
@@ -38,9 +41,8 @@ class RegisterFragment : Fragment() {
         }
 
         btn_goLogin.setOnClickListener {
-            val fragmentTransaction = childFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.flay_register_next, LoginFragment())
-            fragmentTransaction.commit()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
         }
 
         return view
@@ -50,18 +52,14 @@ class RegisterFragment : Fragment() {
 
     private fun nextClickEvent(){
         if (et_password.text.toString() == et_passwordCheck.text.toString() &&
-            et_id.text.isNotEmpty() && et_password.text.isNotEmpty()) {
+            et_account.text.isNotEmpty() && et_password.text.isNotEmpty()) {
 
-            val bundle = Bundle()
-            bundle.putString("account", et_id.text.toString())
-            bundle.putString("password", et_password.text.toString())
-
-            val registerInfoFragment = RegisterInfoFragment()
-            registerInfoFragment.arguments = bundle
-
-            val fragmentTransaction = childFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.flay_register_next, registerInfoFragment)
-            fragmentTransaction.commit()
+            (requireActivity() as? StartActivity)?.viewPager?.let { viewPager ->
+                val currentItem = viewPager.currentItem
+                if (currentItem < viewPager.adapter?.itemCount ?: 0 - 1) {
+                    viewPager.setCurrentItem(currentItem + 1, true)
+                }
+            }
         } else {
             // 비밀번호 재확인 요청
         }

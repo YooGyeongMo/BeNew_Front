@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".start.RegisterInfoSecondFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.widget.Button
+            android:id="@+id/btn_registerInfoSecond_register"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:background="@drawable/draw_main"
+            android:text="회원가입"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spn_registerInfoSecond_major"
+            app:layout_constraintVertical_bias="0.37" />
+
+        <EditText
+            android:id="@+id/et_registerInfoSecond_name"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:background="@drawable/draw_textbox"
+            android:ems="10"
+            android:hint="이름..."
+            android:inputType="text"
+            android:textColorHint="#AAAAAA"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.26" />
+
+        <android.widget.Button
+            android:id="@+id/btn_registerInfoSecond_birthdate"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:background="@drawable/draw_textbox"
+            android:gravity="center_vertical"
+            android:hint="생년월일..."
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_registerInfoSecond_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_registerInfoSecond_name"
+            app:layout_constraintVertical_bias="0.060000002" />
+
+        <Spinner
+            android:id="@+id/spn_registerInfoSecond_gender"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/draw_textbox"
+            android:entries="@array/gender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btn_registerInfoSecond_birthdate"
+            app:layout_constraintTop_toTopOf="@+id/btn_registerInfoSecond_birthdate"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spn_registerInfoSecond_major"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:background="@drawable/draw_textbox"
+            android:entries="@array/major"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_registerInfoSecond_birthdate"
+            app:layout_constraintTop_toBottomOf="@+id/btn_registerInfoSecond_birthdate"
+            app:layout_constraintVertical_bias="0.060000002" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

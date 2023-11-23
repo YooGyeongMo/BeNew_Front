@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.LoginActivity"
-    android:background="#FFFFFF">
+    tools:context=".Login.LoginActivity">
 
     <android.widget.Button
-        android:id="@+id/btn_login_login"
+        android:id="@+id/btn_login_login2"
         android:layout_width="310dp"
         android:layout_height="40dp"
         android:background="@drawable/draw_main"
@@ -21,7 +20,7 @@
         app:layout_constraintVertical_bias="0.65999997" />
 
     <android.widget.Button
-        android:id="@+id/btn_login_register"
+        android:id="@+id/btn_login_register2"
         android:layout_width="310dp"
         android:layout_height="40dp"
         android:background="@drawable/draw_sub"
@@ -29,11 +28,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login_login"
-        app:layout_constraintVertical_bias="0.17000002" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
 
     <EditText
-        android:id="@+id/et_login_account"
+        android:id="@+id/et_login_account2"
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:background="@drawable/draw_textbox"
@@ -46,7 +45,7 @@
         app:layout_constraintVertical_bias="0.35000002" />
 
     <EditText
-        android:id="@+id/et_login_password"
+        android:id="@+id/et_login_password2"
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:background="@drawable/draw_textbox"
@@ -58,17 +57,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
-
-    <FrameLayout
-        android:id="@+id/flay_login_register"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

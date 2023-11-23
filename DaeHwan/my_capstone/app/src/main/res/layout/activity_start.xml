@@ -4,33 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".start.StartActivity">
 
-    <Button
-        android:id="@+id/btn_start_start"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#6532E9"
-        android:text="시작"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <FrameLayout
-        android:id="@+id/flay_start_next"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_start_start"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+    </androidx.viewpager2.widget.ViewPager2>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

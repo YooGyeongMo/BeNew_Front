@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".start.RegisterInfoFirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.widget.Button
+            android:id="@+id/btn_registerInfoFirst_next"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:background="@drawable/draw_main"
+            android:text="다음"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_registerInfoFirst_phone"
+            app:layout_constraintVertical_bias="0.22000003" />
+
+        <EditText
+            android:id="@+id/et_registerInfoFirst_phone"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:background="@drawable/draw_textbox"
+            android:ems="10"
+            android:hint="전화번호..."
+            android:inputType="phone"
+            android:maxLength="13"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_registerInfoFirst_email"
+            app:layout_constraintVertical_bias="0.07999998" />
+
+        <EditText
+            android:id="@+id/et_registerInfoFirst_email"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:autofillHints=""
+            android:background="@drawable/draw_textbox"
+            android:ems="10"
+            android:hint="이메일..."
+            android:inputType="textEmailAddress"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.36" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
