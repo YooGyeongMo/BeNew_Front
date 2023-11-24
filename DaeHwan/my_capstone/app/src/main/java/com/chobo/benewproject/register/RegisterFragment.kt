@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.chobo.benewproject.Login.LoginActivity
 import com.chobo.benewproject.R
+import com.chobo.benewproject.RegisterActivity
 import com.chobo.benewproject.start.StartActivity
 
 class RegisterFragment : Fragment() {
@@ -67,6 +68,14 @@ class RegisterFragment : Fragment() {
                     viewPager.setCurrentItem(currentItem + 1, true)
                 }
             }
+
+            (requireActivity() as? RegisterActivity)?.viewPager?.let { viewPager ->
+                val currentItem = viewPager.currentItem
+                if (currentItem < viewPager.adapter?.itemCount ?: 0 - 1) {
+                    viewPager.setCurrentItem(currentItem + 1, true)
+                }
+            }
+
         } else {
             // 비밀번호 재확인 요청
         }

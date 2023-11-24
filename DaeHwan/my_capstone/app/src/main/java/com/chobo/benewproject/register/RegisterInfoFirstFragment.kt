@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.chobo.benewproject.R
+import com.chobo.benewproject.RegisterActivity
 import com.chobo.benewproject.start.StartActivity
 
 class RegisterInfoFirstFragment : Fragment() {
@@ -49,6 +50,14 @@ class RegisterInfoFirstFragment : Fragment() {
                         viewPager.setCurrentItem(currentItem + 1, true)
                     }
                 }
+
+                (requireActivity() as? RegisterActivity)?.viewPager?.let { viewPager ->
+                    val currentItem = viewPager.currentItem
+                    if (currentItem < viewPager.adapter?.itemCount ?: 0 - 1) {
+                        viewPager.setCurrentItem(currentItem + 1, true)
+                    }
+                }
+
             }
             else
             {
