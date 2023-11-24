@@ -1,4 +1,4 @@
-package com.chobo.benewproject.start
+package com.chobo.benewproject
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -8,20 +8,19 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.chobo.benewproject.R
 import com.chobo.benewproject.register.RegisterFragment
 import com.chobo.benewproject.register.RegisterInfoFirstFragment
 import com.chobo.benewproject.register.RegisterInfoSecondFragment
 import com.chobo.benewproject.register.RegisterViewModel
+import com.chobo.benewproject.start.StartFragment
 
-class StartActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     lateinit var viewPager: ViewPager2
 
     lateinit var registerViewModel : RegisterViewModel
 
-    private val startFragments : List<Fragment> = listOf(
-        StartFragment(),
+    private val registerFragments : List<Fragment> = listOf(
         RegisterFragment(),
         RegisterInfoFirstFragment(),
         RegisterInfoSecondFragment()
@@ -30,30 +29,30 @@ class StartActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        setContentView(R.layout.activity_register)
 
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
-        viewPager = findViewById(R.id.vp_start_view)
+        viewPager = findViewById(R.id.vp_register_view)
 
-        viewPager.adapter = OnboardingPagerAdapter(this@StartActivity)
+        viewPager.adapter = OnboardingPagerAdapter(this@RegisterActivity)
 
         viewPager.isUserInputEnabled = false
+
     }
 
     inner class OnboardingPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
         override fun getItemCount(): Int {
-            return startFragments.size
+            return registerFragments.size
         }
 
         override fun createFragment(position: Int): Fragment {
-            return startFragments[position]
+            return registerFragments[position]
         }
     }
 
     override fun onBackPressed() {
-        val viewPager = findViewById<ViewPager2>(R.id.vp_start_view)
-
+        val viewPager = findViewById<ViewPager2>(R.id.vp_register_view)
 
         val currentItem = viewPager.currentItem
 

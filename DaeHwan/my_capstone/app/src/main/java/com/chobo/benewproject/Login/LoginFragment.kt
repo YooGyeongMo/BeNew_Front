@@ -11,7 +11,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.chobo.benewproject.R
 import com.chobo.benewproject.testmain.TestmainActivity
-import com.chobo.benewproject.start.RegisterFragment
+import com.chobo.benewproject.register.RegisterFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

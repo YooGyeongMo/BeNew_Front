@@ -1,4 +1,4 @@
-package com.chobo.benewproject.start
+package com.chobo.benewproject.register
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.chobo.benewproject.Login.LoginActivity
-import com.chobo.benewproject.Login.LoginFragment
 import com.chobo.benewproject.R
-import com.chobo.benewproject.register.RegisterInfoFragment
+import com.chobo.benewproject.start.StartActivity
 
 class RegisterFragment : Fragment() {
 
@@ -22,6 +22,8 @@ class RegisterFragment : Fragment() {
     private lateinit var btn_next: Button
     private lateinit var btn_goLogin : Button
 
+    lateinit var registerViewModel: RegisterViewModel
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +31,8 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
+
+        registerViewModel = ViewModelProvider(requireActivity()).get(RegisterViewModel::class.java)
 
         et_account = view.findViewById(R.id.et_register_id)
         et_password = view.findViewById(R.id.et_register_password)
@@ -43,16 +47,19 @@ class RegisterFragment : Fragment() {
         btn_goLogin.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
+            activity?.finish()
         }
 
         return view
     }
 
 
-
     private fun nextClickEvent(){
         if (et_password.text.toString() == et_passwordCheck.text.toString() &&
             et_account.text.isNotEmpty() && et_password.text.isNotEmpty()) {
+
+            registerViewModel.account = et_account.text.toString()
+            registerViewModel.password = et_password.text.toString()
 
             (requireActivity() as? StartActivity)?.viewPager?.let { viewPager ->
                 val currentItem = viewPager.currentItem

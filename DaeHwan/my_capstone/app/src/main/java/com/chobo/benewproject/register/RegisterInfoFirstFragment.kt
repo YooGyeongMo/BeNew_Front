@@ -1,4 +1,4 @@
-package com.chobo.benewproject.start
+package com.chobo.benewproject.register
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,13 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.lifecycle.ViewModelProvider
 import com.chobo.benewproject.R
+import com.chobo.benewproject.start.StartActivity
 
 class RegisterInfoFirstFragment : Fragment() {
 
     lateinit var btn_next : Button
     lateinit var et_email : EditText
     lateinit var et_phone : EditText
+
+    lateinit var registerViewModel: RegisterViewModel
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -30,11 +34,14 @@ class RegisterInfoFirstFragment : Fragment() {
 
         et_phone.addTextChangedListener(PhoneNumberFormattingTextWatcher())
 
+        registerViewModel = ViewModelProvider(requireActivity()).get(RegisterViewModel::class.java)
 
         btn_next.setOnClickListener {
             if(et_email.text.isNotEmpty() && et_phone.text.length == 13)
             {
 
+                registerViewModel.email = et_email.text.toString()
+                registerViewModel.phoneNumber = et_phone.text.toString()
 
                 (requireActivity() as? StartActivity)?.viewPager?.let { viewPager ->
                     val currentItem = viewPager.currentItem

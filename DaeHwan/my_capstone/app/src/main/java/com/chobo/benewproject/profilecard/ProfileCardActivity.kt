@@ -92,17 +92,17 @@ class ProfileCardActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val profileData: getProfileData? = response.body()
                     profileData?.let {
-                        val nickname = it.nickname
-                        val instruction = it.instruction
-                        val personalLink = it.personalLink
-                        val projectExperience = it.projectExperience
-                        val role = it.role
+                        val nickname = it.nickname ?: ""
+                        val instruction = it.instruction ?: ""
+                        val personalLink = it.personalLink ?: ""
+                        val projectExperience = it.projectExperience ?: ""
+                        val role = it.role ?: ""
 
-                        val birthday = it.member.birthday
-                        val email = it.member.email
-                        val gender = it.member.gender
-                        val major = it.member.major
-                        val phoneNumber = it.member.phoneNumber
+                        val birthday = it.member?.birthday ?: ""
+                        val email = it.member?.email ?: ""
+                        val gender = it.member?.gender ?: ""
+                        val major = it.member?.major ?: ""
+                        val phoneNumber = it.member?.phoneNumber ?: ""
 
                         runOnUiThread {
                             et_nickname.setText(nickname)
