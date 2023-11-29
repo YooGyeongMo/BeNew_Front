@@ -34,11 +34,12 @@ class HomeFragment: Fragment(), MainView,UserNameCallback {
         // 여기서 사용자 정보를 가져옴
         getUserInfo()
 
+        //뷰 아이디 가져옴
         val buttonNavProfile = view.findViewById<CardView>(R.id.cv_user_info_card)
         val buttonNavProject = view.findViewById<CardView>(R.id.cv_project_info_card)
         val buttonNavMyteamlist = view.findViewById<CardView>(R.id.cv_my_team_list)
 
-        // 모든 버튼에 같은 클릭 리스너 설정
+        // 모든 버튼에 !같은 클릭 리스너! 설정
         buttonNavProfile.setOnClickListener { onCardClicked(it) }
         buttonNavProject.setOnClickListener { onCardClicked(it) }
         buttonNavMyteamlist.setOnClickListener { onCardClicked(it) }
@@ -51,9 +52,12 @@ class HomeFragment: Fragment(), MainView,UserNameCallback {
             R.id.cv_my_team_list -> findNavController().navigate(R.id.action_home_to_teamList) // 팀 리스트로
         }
     }
+
+    //사용자 정보 가져옴
     private fun getUserInfo() {
-        val token = getTokenFromSharedPreferences()
-        val account = getAccountFromSharedPreferences()
+        val token = getTokenFromSharedPreferences()//토큰
+        val account = getAccountFromSharedPreferences()//id
+
         if (token != null && account != null) {
             val homeService = MainAuthService(this) // HomeService는 네트워크 요청을 처리하는 클래스
             homeService.setMainView(this)
