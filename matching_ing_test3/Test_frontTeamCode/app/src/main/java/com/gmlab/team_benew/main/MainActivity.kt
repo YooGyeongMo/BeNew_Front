@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() { //compat 호환성을 해준다는 �
 
         Log.d(TAG, "onCreate")
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_main)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.itemIconTintList = null
 
         val navController = supportFragmentManager.findFragmentById(R.id.Fragment_container)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gom="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/selector_home_icon"
@@ -9,9 +10,8 @@
         android:icon="@drawable/selector_mypage_icon"
         android:title="@string/label_mypage_icon"/>
     <item
-        android:id="@+id/navigation_intro_matching"
-        android:icon="@drawable/selector_matching_icon"
-        android:title="매칭"/>
+        android:title=""
+        gom:showAsAction="never"/>
     <item
         android:id="@+id/navigation_myteampage"
         android:icon="@drawable/selector_myteam_icon"

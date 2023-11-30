@@ -20,24 +20,27 @@ class MainAuthService(private val context: HomeFragment) {
     fun setMainView(mainView: MainView) {
         this.mainView = mainView
     }
+    //MainView를 MainAuthService에 주입, MainAuthService는 해당 클래스에서 정의한 동작을 호출할 수 있음
 
     fun setUserNameCallback(callback: UserNameCallback) {
         this.userNameCallback = callback
     }
+    //MainView를 MainAuthService에 주입, MainAuthService는 해당 클래스에서 정의한 동작을 호출할 수 있음
 
     fun getUserName(token: String, account: String){
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
         val bearerToken = "Bearer $token"
+
         authService.userGet(bearerToken, account).enqueue(object : Callback<UserGet> {
             override fun onResponse(call: Call<UserGet>, response: Response<UserGet>) {
                 when(response.code()){
                     200 -> {
-                        var username =  response.body()?.name?.let{it + "님"} ?:""
-                        userNameCallback?.onUserNameReceived(username)
-                        mainView.onMainGetSuccess()
+                        var username =  response.body()?.name?.let{it + "님"} ?:""//username을 가져옴
+                        userNameCallback?.onUserNameReceived(username)//username넘겨줌
+                        mainView.onMainGetSuccess()//성공
                     }
                     401 -> {
-                        mainView.onMainGetFailure()
+                        mainView.onMainGetFailure()//실패
                     }
                     else -> {
                         response.code()

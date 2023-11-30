@@ -26,9 +26,12 @@ class AuthService {
         this.reloginView =reloginView
     }
 
+
+    //회원가입
     fun signUp(registerUser: RegisterUser) {
 
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
+
         authService.signUp(registerUser).enqueue(object : Callback<ResponseBody> {
             //응답이 왔을때
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -52,6 +55,8 @@ class AuthService {
         Log.d("SIGNUP", "비동기 함수 작동완료 ~!")
     }
 
+
+    //로그인
     fun login(user: User, context: Context) {
 
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
@@ -64,7 +69,7 @@ class AuthService {
                         //응답 바디가 널이 아닐때 let블록실행
                         response.body()?.let{ result->
                             val currentToken = getCurrentToken(context)
-                            if( currentToken != result.token) {
+                            if( currentToken != result.token) {//즉, 현재 토큰과 응답으로 받은 토큰이 다를때 응답으로 받은 토큰이랑 아이디 새로 저장함
                             saveLoginInfo(context, result.id, result.account, result.token)
                         }
                             loginView.onLoginSuccess()
@@ -119,10 +124,10 @@ class AuthService {
     {
         val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
-            id?.let { putInt("loginId", it) }
+            id?.let { putInt("loginId", it) }//널이 아닐때만 실행됨
             account?.let { putString("userAccount", it) }
             token?.let { putString("userToken", it) }
-            apply()
+            apply()//적용
         }
     }
 

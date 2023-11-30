@@ -59,10 +59,10 @@ class HomeFragment: Fragment(), MainView,UserNameCallback {
         val account = getAccountFromSharedPreferences()//id
 
         if (token != null && account != null) {
-            val homeService = MainAuthService(this) // HomeService는 네트워크 요청을 처리하는 클래스
+            val homeService = MainAuthService(this) // HomeService는 네트워크 요청을 처리하는 클래스,MainAuthService 클래스의 인스턴스를 생성
             homeService.setMainView(this)
             homeService.setUserNameCallback(this)
-            homeService.getUserName(token,account)
+            homeService.getUserName(token,account)//토큰이랑 id를 넘겨줘서 메인에 userid띄움
         }
     }
 
@@ -73,13 +73,14 @@ class HomeFragment: Fragment(), MainView,UserNameCallback {
 
     private fun getTokenFromSharedPreferences(): String? {
         val sharedPref = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        return sharedPref?.getString("userToken", null)
+        //이 안드로이드 앱 내부에 "MyAppPrefs"이름으로 파일 저장, private은 저장옵션
+        return sharedPref?.getString("userToken", null)//꺼내오는거라 빈값(null)
     }
 
     // SharedPreferences에서 account 가져오는 함수
     private fun getAccountFromSharedPreferences(): String? {
         val sharedPref = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        return sharedPref?.getString("userAccount", null)
+        return sharedPref?.getString("userAccount", null)//sharedpreferences에서 꺼내옴
     }
 
     override fun onMainGetSuccess() {

@@ -76,6 +76,7 @@ class LoginActivity : AppCompatActivity(), LoginView, ReLoginView {
 
     }
 
+
     private fun textWatcher() {
         val loginId = binding.tetLoginId
         val tiLoginId = binding.tiLoginId

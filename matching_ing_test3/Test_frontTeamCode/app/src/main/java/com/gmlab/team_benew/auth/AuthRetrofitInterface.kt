@@ -13,11 +13,12 @@ interface AuthRetrofitInterface {
     fun signUp(@Body registerUser: RegisterUser) : Call<ResponseBody>
 
 
-    @POST("/login")
+    @POST("/login")//응답값으로 토큰 받음?
     fun login(@Body user: User) : Call<LoginResult>
 
 
     // 스플래시에서 토큰 권한정보 확인시
+    //토큰으로만 요청을 보내면 서버에서 이 토큰 확인후에 api에 맞게 응답함
     @GET("/user/get")
     fun adminGet(@Header("Authorization") bearerToken: String, @Query("account") account: String): Call<TokenGet>
 
