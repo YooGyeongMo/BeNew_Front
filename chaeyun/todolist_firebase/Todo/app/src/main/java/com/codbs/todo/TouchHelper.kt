@@ -22,10 +22,10 @@ class TouchHelper(private val adapter: ToDoAdapter) :
         val position = viewHolder.adapterPosition
         if (direction == ItemTouchHelper.RIGHT) {
             val builder = AlertDialog.Builder(adapter.context)
-            builder.setMessage("Are You Sure?")
-                .setTitle("Delete Task")
-                .setPositiveButton("Yes") { dialog, which -> adapter.deleteTask(position) }
-                .setNegativeButton("No") { dialog, which -> adapter.notifyItemChanged(position) }
+            builder.setMessage("삭제하시겠어요?")
+                .setTitle("경고")
+                .setPositiveButton("네") { dialog, which -> adapter.deleteTask(position) }
+                .setNegativeButton("아니요") { dialog, which -> adapter.notifyItemChanged(position) }
             val dialog = builder.create()
             dialog.show()
         } else {
@@ -51,9 +51,9 @@ class TouchHelper(private val adapter: ToDoAdapter) :
             actionState,
             isCurrentlyActive
         )
-            .addSwipeRightActionIcon(R.drawable.delete_img)
-            .addSwipeRightBackgroundColor(Color.RED)
-            .addSwipeLeftActionIcon(R.drawable.edit_img)
+            .addSwipeRightActionIcon(R.drawable.delete)
+            .addSwipeRightBackgroundColor(Color.parseColor("#fc3f00"))
+            .addSwipeLeftActionIcon(R.drawable.edit)
             .addSwipeLeftBackgroundColor(ContextCompat.getColor(adapter.context, R.color.white))
             .create()
             .decorate()

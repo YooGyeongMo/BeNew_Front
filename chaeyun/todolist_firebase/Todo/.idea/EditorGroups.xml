@@ -2,8 +2,8 @@
 <project version="4">
   <component name="EditorGroups">
     <lastGroup>
-      <p k="$PROJECT_DIR$/app/src/main/res/layout/add_new_task.xml" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/res/layout/each_task.xml" v="HidePanelGroup" />
+      <p k="$PROJECT_DIR$/app/src/main/res/layout/add_new_task.xml" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/res/drawable/noun-plus-57639.png" v="HidePanelGroup" />
       <p k="$PROJECT_DIR$/app/src/main/res/drawable/img_1.png" v="HidePanelGroup" />
     </lastGroup>

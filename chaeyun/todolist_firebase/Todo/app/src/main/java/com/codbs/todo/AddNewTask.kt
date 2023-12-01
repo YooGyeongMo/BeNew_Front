@@ -90,10 +90,10 @@ class AddNewTask : BottomSheetDialogFragment() {
             val task = mTaskEdit.getText().toString()
             if (finalIsUpdate) {
                 firestore!!.collection("task").document(id!!).update("task", task, "due", dueDate)
-                Toast.makeText(context, "Task Updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "수정되었어요", Toast.LENGTH_SHORT).show()
             } else {
                 if (task.isEmpty()) {
-                    Toast.makeText(context, "Empty task not Allowed !!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "할일을 입력해주세요", Toast.LENGTH_SHORT).show()
                 } else {
                     val taskMap: MutableMap<String, Any> = HashMap()
                     taskMap["task"] = task
@@ -102,7 +102,7 @@ class AddNewTask : BottomSheetDialogFragment() {
                     taskMap["time"] = FieldValue.serverTimestamp()
                     firestore!!.collection("task").add(taskMap).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(context, "Task Saved", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "저장되었어요", Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(context, task.exception!!.message, Toast.LENGTH_SHORT)
                                 .show()
