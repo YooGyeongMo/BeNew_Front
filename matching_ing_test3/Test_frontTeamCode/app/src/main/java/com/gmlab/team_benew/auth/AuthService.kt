@@ -124,7 +124,7 @@ class AuthService {
     {
         val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
-            id?.let { putInt("loginId", it) }//널이 아닐때만 실행됨
+            id?.let { putInt("loginId", it) }//let은 널이 아닐때만 실행됨
             account?.let { putString("userAccount", it) }
             token?.let { putString("userToken", it) }
             apply()//적용

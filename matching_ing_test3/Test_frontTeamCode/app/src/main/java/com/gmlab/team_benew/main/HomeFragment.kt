@@ -35,7 +35,7 @@ class HomeFragment: Fragment(), MainView,UserNameCallback {
         getUserInfo()
 
         //뷰 아이디 가져옴
-        val buttonNavProfile = view.findViewById<CardView>(R.id.cv_user_info_card)
+        val buttonNavProfile = view.findViewById<CardView>(R.id.cv_user_info_card)//카드뷰
         val buttonNavProject = view.findViewById<CardView>(R.id.cv_project_info_card)
         val buttonNavMyteamlist = view.findViewById<CardView>(R.id.cv_my_team_list)
 

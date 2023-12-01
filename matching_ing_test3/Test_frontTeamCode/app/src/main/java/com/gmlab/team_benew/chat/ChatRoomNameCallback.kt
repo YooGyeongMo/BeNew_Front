@@ -1,5 +1,6 @@
 package com.gmlab.team_benew.chat
 
 
-interface ChatUserNameCallback {
+interface ChatRoomNameCallback {
+    fun ChatRoomNameReceived(chatRoomName:String)
 }

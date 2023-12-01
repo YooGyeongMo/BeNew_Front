@@ -1,10 +1,10 @@
-package com.gmlab.team_benew.Chat_chaeyun
+package com.gmlab.team_benew.chat
 
 import com.google.gson.annotations.SerializedName
 
 data class ChatModel(
 
-    @SerializedName("ChatName") val name:String,
+    @SerializedName("name") val chatRoomName:String,
     val roomId:String
 
 )

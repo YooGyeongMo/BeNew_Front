@@ -3,11 +3,10 @@ package com.gmlab.team_benew.chat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gmlab.team_benew.Chat_chaeyun.ChatModel
 import com.gmlab.team_benew.databinding.ChatlistRecyclerItemBinding
 
 class ChatlistAdapter: RecyclerView.Adapter<Holder>() {
-    var modelList= mutableListOf<ChatData>()
+    var modelList= mutableListOf<ChatData_recycler>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -30,7 +29,7 @@ class ChatlistAdapter: RecyclerView.Adapter<Holder>() {
 
 }
 class Holder(val binding:ChatlistRecyclerItemBinding):RecyclerView.ViewHolder(binding.root){
-    fun bind(myModel:ChatData){
+    fun bind(myModel:ChatData_recycler){
         binding.userName.text="${myModel.chatRoomName}"
     }
 }

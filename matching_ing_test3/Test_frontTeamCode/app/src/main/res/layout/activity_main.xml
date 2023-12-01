@@ -67,7 +67,8 @@
             android:backgroundTint="#b8dff8"
             app:shapeAppearanceOverlay="@style/RoundedCorner"
             app:fabCustomSize="79dp"
-            android:src="@drawable/match"
+            android:src="@drawable/search"
+
             app:layout_anchor="@+id/bottomNavigationView"
             app:layout_anchorGravity="center_horizontal|center"/>
 

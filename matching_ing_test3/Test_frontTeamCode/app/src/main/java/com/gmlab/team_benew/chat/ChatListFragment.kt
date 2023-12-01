@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.gmlab.team_benew.R
 import com.gmlab.team_benew.main.MainAuthService
 import com.gmlab.team_benew.main.MainView
 import com.gmlab.team_benew.main.UserNameCallback
 
-class ChatListFragment: Fragment() {
+class ChatListFragment: Fragment() ,ChatRoomNameCallback{
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,35 +22,38 @@ class ChatListFragment: Fragment() {
     }
     override fun onResume(){
         super.onResume()
-        getUser()
+        getChatRoomName()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getUser()
+        getChatRoomName()
 
         //여기는 각 채팅목록 클릭시 채팅방으로 이동하는 거 구현하기
     }
-    private fun getUser(){
-        val token=getTokenFromSharedPreferences()
-        val account=getAccountFromSharedPreferences()
+    private fun getChatRoomName(){
+        val loginId=getLoginIdFromSharedPreferences()
 
-        if(token!=null && account!=null){
 
-        }
+            val service=ChatService(this)
+            service.createChatRoom(loginId)
+
+
+
+
+    }
+    private fun getLoginIdFromSharedPreferences():Int{
+        val sharedPref=activity?.getSharedPreferences("Prefs",Context.MODE_PRIVATE)
+        return sharedPref?.getInt("loginId",-1)?: -1
 
     }
 
 
-    private fun getTokenFromSharedPreferences():String?{
-        val sharedPref=activity?.getSharedPreferences("Prefs", Context.MODE_PRIVATE)
-        return sharedPref?.getString("userToken",null)
+    override fun ChatRoomNameReceived(userName:String){
+        val chatuser=view?.findViewById<TextView>(R.id.chatlist_userid)
+        chatuser?.text=userName
     }
 
-    private fun getAccountFromSharedPreferences(): String? {
-        val sharedPref = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        return sharedPref?.getString("userAccount", null)
-    }
 
 }
