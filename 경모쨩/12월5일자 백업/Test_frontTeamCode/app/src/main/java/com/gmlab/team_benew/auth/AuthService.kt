@@ -69,9 +69,7 @@ class AuthService {
                         }
                             loginView.onLoginSuccess()
                         }
-//                        GlobalData.loginId = response.body()?.result?.id //null일 경우 저장되어야해서 안전한 연산자 사용
-//                        GlobalData.UserAccount = response.body()?.result?.account
-//                        GlobalData.GlobalToken = response.body()?.result?.token
+//
                     }
                     401 -> {
                         relogin(user,context)

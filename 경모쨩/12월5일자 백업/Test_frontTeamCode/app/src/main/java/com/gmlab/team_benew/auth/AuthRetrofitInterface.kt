@@ -25,4 +25,5 @@ interface AuthRetrofitInterface {
     // 메인 액티비티에 가져오기 값
     @GET("/user/get")
     fun userGet(@Header("Authorization") bearerToken: String, @Query("account") account: String): Call<UserGet>
+
 }

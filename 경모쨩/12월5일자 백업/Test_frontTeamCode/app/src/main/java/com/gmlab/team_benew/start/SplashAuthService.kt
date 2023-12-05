@@ -58,6 +58,5 @@ class SplashAuthService(private  val context: Context) {
     private fun getTokenFromSharedPreferences(context: Context): String? {
         val sharedPref = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         return sharedPref.getString("userToken", null)
-
     }
 }
